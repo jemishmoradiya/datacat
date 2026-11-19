@@ -86,7 +86,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
-        with: { go-version: "1.26.11", cache-dependency-path: agent/manifest.yaml }
+        # No committed go.sum (the collector sources are generated), so setup-go's own cache never has a key to use.
+        with: { go-version: "1.26.11", cache: false }
+      - name: Go module and build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: go-${{ runner.os }}-${{ hashFiles('agent/manifest.yaml', 'agent/build.sh') }}
+          restore-keys: go-${{ runner.os }}-
       - name: Build and test
         run: bash agent/build.sh
       - name: Vulnerability scan
