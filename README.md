@@ -100,6 +100,7 @@ Tests:
 
 ```sh
 pnpm --filter @workspace/api-server test     # server unit tests
+pnpm --filter @workspace/web test            # web UI unit tests
 DATACAT_URL=http://localhost:3000 DATACAT_SETUP_TOKEN=<token> bash scripts/e2e.sh   # end-to-end known-answer checks against a fresh install
 ```
 

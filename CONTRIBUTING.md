@@ -16,6 +16,7 @@ pnpm --filter @workspace/api-server run typecheck
 pnpm --filter @workspace/web run typecheck
 BASE_PATH=/ pnpm run build:selfhost
 pnpm --filter @workspace/api-server test
+pnpm --filter @workspace/web test
 # with DataCat running on an empty database:
 DATACAT_URL=http://localhost:3000 DATACAT_SETUP_TOKEN=<token> bash scripts/e2e.sh
 ```

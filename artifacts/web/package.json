@@ -7,7 +7,8 @@
     "dev": "vite dev",
     "build": "vite build",
     "serve": "vite preview",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@tailwindcss/vite": "catalog:",
@@ -16,7 +17,8 @@
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "tailwindcss": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vitest": "^5.1.1"
   },
   "dependencies": {
     "@tanstack/react-query": "catalog:",
